@@ -1,0 +1,257 @@
+
+:root {
+    --primary-color: #ff8c00; 
+    --dark-color: #1a1a1a;    
+    --light-color: #f4f4f4;   
+    --secondary-color: #333; 
+}
+
+/* Basic reset to remove default browser margins and padding. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes box model sizing more intuitive. */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Use the imported Google Font. */
+    line-height: 1.6;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links. */
+}
+
+/* "container" class to center content and set a max width. */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto; /* Horizontally centers the container. */
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* Allows the border to fit the text width. */
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* General button styles. */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* A subtle "lift" effect on hover. */
+    opacity: 0.9;
+}
+
+/* --- HEADER & NAVIGATION --- */
+
+
+.main-header {
+    background-color: var(--dark-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--secondary-color);
+    position: sticky; /* Makes the header stick to the top on scroll. */
+    top: 0;
+    z-index: 100; /* Ensures header is above other content. */
+}
+
+.main-header .container {
+    display: flex; /* Aligns logo and nav on the same line. */
+    justify-content: space-between; /* Pushes logo left and nav right. */
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style-type: none; /* Removes list bullets. */
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px; /* Space between nav items. */
+}
+
+.main-nav a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- MAIN CONTENT SECTIONS --- */
+
+section {
+    padding: 60px 0; /* Vertical space between sections. */
+    text-align: center;
+}
+
+/* Alternating background colors for sections. */
+section:nth-child(even) {
+    background-color: var(--secondary-color);
+}
+
+/* Hero Section styles. */
+.hero-section {
+    min-height: 80vh; /* Takes up 80% of the viewport height. */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Classes grid styles. */
+.classes-grid {
+    margin-top: 40px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; /* Single column layout for mobile by default. */
+}
+
+.class-card {
+    background-color: var(--dark-color);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    text-align: left;
+}
+
+/* Schedule table styles. */
+.table-container {
+    overflow-x: auto; /* Allows the table to be scrolled horizontally on small screens. */
+    margin-top: 40px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse; /* Merges cell borders. */
+    min-width: 600px; /* Prevents table from becoming too compressed. */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+/* Contact section styles. */
+.contact-details {
+    margin: 30px 0;
+    font-size: 1.1rem;
+}
+
+
+/* --- FOOTER --- */
+
+.main-footer {
+    background-color: var(--dark-color);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE (MEDIA QUERIES) --- */
+
+/* Media query for tablets and larger devices (768px and up). */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+    /* Two-column layout for the classes grid. */
+    .classes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query for desktops (1024px and up). */
+@media (min-width: 1024px) {
+    /* Four-column layout for classes on large screens. */
+    .classes-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Styles for mobile (up to 767px). Most base styles are already mobile-first. */
+@media (max-width: 767px) {
+    .main-header .container {
+        flex-direction: column; /* Stack logo and nav vertically. */
+        gap: 15px; /* Add space between them. */
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem; /* Smaller heading on mobile. */
+    }
+}
